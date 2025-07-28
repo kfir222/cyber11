@@ -1,0 +1,18 @@
+import threading
+count=0
+def Plus():
+    global count
+    for i in range(0,100000):
+        count+=1
+def Minus():
+    global count
+    for i in range(0,100000):
+        count-=1    
+t1=threading.Thread(target=Plus)
+
+t2=threading.Thread(target=Minus)
+t1.start()        
+t2.start()
+t1.join()
+t2.join
+print("your global count: "count)
